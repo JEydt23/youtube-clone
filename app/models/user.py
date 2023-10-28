@@ -13,6 +13,16 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    first_name = db.Column(db.String(40), nullable=False)
+    last_name = db.Column(db.String(40), nullable=False)
+    profile_pic = db.Column(db.String(255))
+    bio = db.Column(db.String(1000))
+
+    # Relationships
+
+    videos = db.relationship("Video", back_populates="users", cascade="all, delete")
+
+
 
     @property
     def password(self):
@@ -29,5 +39,9 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'profile_pic': self.profile_pic,
+            'bio': self.bio
         }

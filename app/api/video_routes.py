@@ -4,6 +4,9 @@ from ..models import db, Video, User
 from ..forms import VideoForm
 from flask_login import login_required, current_user
 from .auth_routes import validation_errors_to_error_messages
+from .aws import (
+    upload_file_to_s3, allowed_file, get_unique_filename)
+
 
 video_route = Blueprint("videos", __name__)
 

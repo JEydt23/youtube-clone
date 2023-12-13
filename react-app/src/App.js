@@ -5,6 +5,8 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import AllVideos from "./components/AllVideos/AllVideos";
+import SingleVideo from "./components/SingleVideo/SingleVideo";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +25,12 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route exact path ='/'>
+            <AllVideos />
+          </Route>
+          <Route exact path='/videos/:videoId'>
+            <SingleVideo />
           </Route>
         </Switch>
       )}

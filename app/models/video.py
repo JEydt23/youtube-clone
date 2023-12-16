@@ -10,7 +10,7 @@ class Video(db.Model):
     title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(1000), nullable=False)
     video_url = db.Column(db.String(), nullable=False)
-    date_uploaded = db.Column(db.DateTime, server_default=db.func.now())
+    # date_uploaded = db.Column(db.DateTime, server_default=db.func.now())
     tags = db.Column(db.String(100))
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
 
@@ -27,7 +27,7 @@ class Video(db.Model):
             "title": self.title,
             "description": self.description,
             "video_url": self.video_url,
-            "date_uploaded": self.date_uploaded,
+            # "date_uploaded": self.date_uploaded,
             "tags":  self.tags,
             "user_id": self.user_id
         }

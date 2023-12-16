@@ -15,6 +15,7 @@ export const getAllVideos = () => async (dispatch) => {
     const response = await fetch(`/api/videos`);
     if (response.ok) {
         const videos = await response.json();
+        
         dispatch(allVideos(videos))
 
     }
@@ -29,7 +30,7 @@ export default function reducer(state = { viewAllVideos: {} }, action) {
             const newState = { viewAllVideos: {} }
 
             action.videos.Videos.forEach(e => {
-                console.log('e === ', e)
+                // console.log('e === ', e)
                 newState.viewAllVideos[e.id] = e
             })
             return newState

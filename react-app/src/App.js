@@ -5,7 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
-import AllVideos from "./components/AllVideos/AllVideos";
+import ShowAllVideos from "./components/AllVideos/index";
 import SingleVideo from "./components/SingleVideo/SingleVideo";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path ='/'>
-            <AllVideos />
+            <ShowAllVideos />
           </Route>
           <Route exact path='/videos/:videoId'>
             <SingleVideo />

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllVideos } from "../../store/video";
 import ReactPlayer from 'react-player'
@@ -7,53 +7,32 @@ import './AllVideos.css'
 const ShowAllVideos = () => {
     const videoState = useSelector(state => state.video.viewAllVideos);
     const dispatch = useDispatch();
-    console.log('videostate ==== ', Object.values(videoState))
+    const [hoveredVid, setHoveredVid] = useState(null);
 
     useEffect(() => {
         dispatch(getAllVideos());
-
-    }, [dispatch, videoState.id])
-
-
-
+    }, [dispatch]);
 
     return (
-        <div className="videos-div" style={{display: 'flex', flexWrap: 'wrap'}} >
-           {Object.values(videoState).map(video => (
-                <div className="each-vid">
-                    <ReactPlayer url={video.video_url} controls='true' wrapper="div" style={{ margin: '5px' }} />
-
+        <div className="videos-main-div">
+            {Object.values(videoState).map(video => (
+                <div
+                    key={video.id}
+                    onMouseEnter={() => setHoveredVid(video.id)}
+                    onMouseLeave={() => setHoveredVid(null)}
+                >
+                    <ReactPlayer
+                        url={video.video_url}
+                        width="100%"
+                        height="100%"
+                        playing={hoveredVid === video.id}
+                        controls={false}
+                        muted={true}
+                    />
                 </div>
-
             ))}
-
-
         </div>
-
-    )
-
-
-
-}
+    );
+};
 
 export default ShowAllVideos;
-
-// if (!videoState === null) return <div>Loading...</div>;
-// { console.log(video.video_url, 'video') }
-
-                // <div>
-                //     {/* {video.video_url} */}
-                // <div>
-                //     {/* {video.video_url} */}
-                //     <div className="allVideos" style={{ border: 'red', display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
-                //         <video src={video.video_url} />
-                //     </div>
-
-                // </div>
-
-                // </div>
-
-                // if (Object.keys(videoState).length === 0) {
-    //     // Handle the case where there are no videos
-    //     return <div>No videos available.</div>;
-    // }

@@ -1,0 +1,11 @@
+.videos-main-div {
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+    position: relative;
+
+}
+
+.video-container {
+    margin: 10px;
+}

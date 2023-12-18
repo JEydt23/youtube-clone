@@ -6,7 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import ShowAllVideos from "./components/AllVideos/index";
-import SingleVideo from "./components/SingleVideo/SingleVideo";
+import SingleVideo from "./components/SingleVideo/index";
 
 function App() {
   const dispatch = useDispatch();

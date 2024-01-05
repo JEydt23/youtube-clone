@@ -21,23 +21,21 @@ const ShowAllVideos = () => {
                     key={video.id}
                     onMouseEnter={() => setHoveredVid(video.id)}
                     onMouseLeave={() => setHoveredVid(null)}
-
                 >
-                    <NavLink to={`/videos/${video.id}`} style={{ textDecoration: "none" }}>
-                        <ReactPlayer
-                            url={video.video_url}
-                            width="100%"
-                            height="100%"
-                            playing={hoveredVid === video.id}
-                            controls={false}
-                            muted={true}
-                            style={{
-                                margin: "50px",
-                                objectFit: "cover",
-                                backgroundSize: "cover"
-                            }}
-                        />
-                    </NavLink>
+                    <div className="navlink-div" style={{ border: 'yellow 1px solid' }}>
+                        <NavLink to={`/videos/${video.id}`} style={{ textDecoration: "none" }} >
+                            <ReactPlayer
+                                className="test"
+                                style={{ border: "10px red solid" }}
+                                url={video.video_url}
+                                playing={hoveredVid === video.id}
+                                controls={false}
+                                muted={true}
+                                height="100%"
+                                width="100%"
+                            />
+                        </NavLink>
+                    </div>
                 </div>
             ))}
         </div>

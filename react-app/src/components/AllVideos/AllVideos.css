@@ -3,7 +3,10 @@
     flex-wrap: wrap;
     cursor: pointer;
     position: relative;
-
+    border: blue 5px dotted;
+    justify-content: center;
+    /* align-items: center; */
+    /* justify-items: center; */
 }
 
 .singleVid {

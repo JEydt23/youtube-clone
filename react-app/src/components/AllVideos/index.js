@@ -17,13 +17,13 @@ const ShowAllVideos = () => {
     return (
         <div className="videos-main-div">
             {Object.values(videoState).map(video => (
-                <div
+                <div className="singleVid"
                     key={video.id}
                     onMouseEnter={() => setHoveredVid(video.id)}
                     onMouseLeave={() => setHoveredVid(null)}
 
                 >
-                    <NavLink to={`/videos/${video.id}`} style={{ textDecoration: "none"}}>
+                    <NavLink to={`/videos/${video.id}`} style={{ textDecoration: "none" }}>
                         <ReactPlayer
                             url={video.video_url}
                             width="100%"
@@ -31,7 +31,11 @@ const ShowAllVideos = () => {
                             playing={hoveredVid === video.id}
                             controls={false}
                             muted={true}
-                            style={{margin: "20px"}}
+                            style={{
+                                margin: "50px",
+                                objectFit: "cover",
+                                backgroundSize: "cover"
+                            }}
                         />
                     </NavLink>
                 </div>
